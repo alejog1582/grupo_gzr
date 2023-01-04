@@ -1,0 +1,84 @@
+body{
+    background-image: url('../images/mountain.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+.formulario-login{
+    background: rgb(0,.0,.0,.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,.0,.0,0.568);
+    color: white;
+}
+.form-control{
+    background: rgb(0,.0,.0,.3);
+    border-style: none;
+    transition: 0.5s ease-in;
+    outline: none;
+    box-shadow: none;
+}
+.form-control:focus{
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+.form-control::placeholder{
+    color: white;
+}
+.ingresar{
+    background: #222A3F;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700 !important;
+    color: white;
+    box-shadow: 0 0 30px rgba(0,.0,.0,0.568);
+    transition: 0.5s ease-in;
+}
+.ingresar:hover{
+    color: white;
+}
+.recuperacion-contrasena{
+    color: wheat;
+    text-decoration-style:none ;
+    text-decoration-line: none;
+}
+.recuperacion-contrasena:hover{
+    color: wheat;
+    text-decoration-style:none ;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+.registrarse{
+    color: wheat;
+    text-decoration-style:none ;
+    text-decoration-line: none;
+    font-size: 20px;
+    font-weight: 700 !important;
+    /* border: 2px solid white; */
+    padding: 10px;
+    border-radius: 10px;
+    background: rgb(0,.0,.0,.5);
+}
+.registrarse:hover{
+    color: wheat;
+    text-decoration-style:none ;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+.barra_menu{
+    background: rgb(0,.0,.0,.1);
+    padding: 15px;
+    color: white;
+}
+.boton_menu{
+    background: #222A3F;
+    padding: 8px;
+    font-size: 12px;
+    color: white;
+}
+.boton_menu:hover{
+    color: white;
+}
