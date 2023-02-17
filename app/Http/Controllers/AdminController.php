@@ -10,7 +10,7 @@ class AdminController extends Controller
     public function index()
     {
         $usuario = \Auth::user();
-        $tarjetas = HomeTarjeta::all();
+        $tarjetas = HomeTarjeta::where('proyecto', 'gzr')->get();;
         return view('dashboard', [
 			'usuario' => $usuario,
             'tarjetas' => $tarjetas,

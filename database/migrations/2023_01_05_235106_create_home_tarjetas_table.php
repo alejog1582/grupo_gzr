@@ -18,6 +18,7 @@ class CreateHomeTarjetasTable extends Migration
             $table->boolean('activo')->default(false);
             $table->string('link');
             $table->string('titulo');
+            $table->string('proyecto');
             $table->string('descripcion');
             $table->timestamps();
         });

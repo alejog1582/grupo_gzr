@@ -1,0 +1,44 @@
+<table>
+    <thead>
+    <tr>
+        <th>compania_id</th>
+        <th>tipo</th>
+        <th>identificacion</th>
+        <th>nombre_completo</th>
+        <th>nombre_comercial</th>
+        <th>puntos_total</th>
+        <th>codigo_cliente</th>
+        <th>membresia_id</th>
+        <th>celular</th>
+        <th>telefono</th>
+        <th>email</th>
+        <th>direccion</th>
+        <th>ciudad</th>
+        <th>barrio</th>
+        <th>codigo_postal</th>
+        <th>latitud</th>
+        <th>longitud</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ingresar ID de compañia otorgada</td>
+            <td>empresa, persona *requerido</td>
+            <td>*requerido</td>
+            <td>*requerido</td>
+            <td>opcional</td>
+            <td>*requerido</td>
+            <td>opcional</td>
+            <td>opcional</td>
+            <td>*requerido</td>
+            <td>opcional</td>
+            <td>*requerido</td>
+            <td>*requerido</td>
+            <td>*requerido</td>
+            <td>opcional</td>
+            <td>opcional</td>
+            <td>opcional</td>
+            <td>opcional</td>
+        </tr>
+    </tbody>
+</table>

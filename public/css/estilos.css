@@ -1,3 +1,11 @@
+:root{
+    --width: 300px;
+    --padding: 10;
+    --bgcolor: rgb(0,.0,.0,.1);
+    --hovercolor: #222A3F;
+    --width-collapsed: 50px;
+
+}
 body{
     background-image: url('../images/mountain.jpg');
     background-repeat: no-repeat;
@@ -5,6 +13,112 @@ body{
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    /* margin-left: var(--width-collapsed); */
+}
+/* .body-expanded-fidepuntos{
+    margin-left: var(--width);
+} */
+#side-menu-fidepuntos{
+    background-color: var(--bgcolor);
+    color: white;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+#side-menu-fidepuntos a {
+    color: white;
+    text-decoration: none;
+}
+#side-menu-fidepuntos #header-menu-fidepuntos{
+    box-sizing: border-box;
+    border-bottom: solid 1px var(--hovercolor);
+}
+#side-menu-fidepuntos #header-menu-fidepuntos #title-menu-fidepuntos {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#profile-fidepuntos{
+    border-bottom: solid 1px var(--hovercolor);
+    padding: var(--padding) 0;
+    text-align: center;
+}
+#profile-fidepuntos #name-profile-fidepuntos{
+    font-size: 24px;
+    padding: var(--padding) 0;
+    overflow: hidden;
+}
+#menu-items-fidepuntos{
+    overflow: hidden;
+}
+#item-fidepuntos{
+    width: var(--width);
+}
+#icon-fidepuntos, .title-icon-fidepuntos{
+    font-size: 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+#item-fidepuntos a{
+    display: block;
+}
+#item-fidepuntos a:hover{
+    background-color: var(--hovercolor);
+}
+.icon-fidepuntos{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+    display: inline-block;
+}
+.icon-fidepuntos i{
+    font-size: 2em;
+    padding-top: 0.5em;
+}
+.title-icon-fidepuntos{
+    padding: var(--padding) 0;
+}
+.item-separador{
+    height: 1px;
+    border-bottom: solid 1px var(--hovercolor);
+    margin: 15px 0;
+}
+.menu-expanded-fidepuntos{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.menu-expanded-fidepuntos #header-menu-fidepuntos #title-menu-fidepuntos{
+    display: inline-block;
+    width: calc(100% - 50px);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+.menu-expanded-fidepuntos #header-menu-fidepuntos #title-menu-fidepuntos span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+    display: inline-block;
+}
+.menu-collapsed-fidepuntos{
+    width: var(--width-collapsed);
+}
+.menu-collapsed-fidepuntos #header-menu-fidepuntos #title-menu-fidepuntos {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+.menu-collapsed-fidepuntos #profile-fidepuntos  #name-profile-fidepuntos {
+    display: none;
+}
+.menu-collapsed-fidepuntos #menu-items {
+    width: 100px;
+}
+#perfil-profile-fidepuntos{
+    font-size: 0.7em;
+}
+.item-lista-fidepuntos{
+    text-align: end;
 }
 .formulario-login{
     background: rgb(0,.0,.0,.1);
@@ -84,4 +198,9 @@ body{
 }
 .titulo-dashboard{
     color: white;
+}
+.wrapper-fidepuntos {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
 }

@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
+
+Route::apiResource('eval/v1/clientes', App\Http\Controllers\Eval_\Api\V1\ClienteEvalController::class);
+Route::apiResource('fidepuntos/v1/clientes', App\Http\Controllers\Fidepuntos\Api\V1\ClienteFidepuntosController::class);
+/* //Rutas Crud Clientas Eval
+Route::get('eval/v1/clientes', [ClienteEvalController::class, 'index']);
+Route::get('eval/v1/clientes/{id}', [ClienteEvalController::class, 'show']); */
