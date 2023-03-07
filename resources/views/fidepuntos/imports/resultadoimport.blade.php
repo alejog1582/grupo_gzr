@@ -26,6 +26,9 @@
                 @if ($proceso_importacion == "clientes")
                     <a href="/dashboard/fidepuntos/clientes" class="btn boton_menu">Regresar</a>
                 @endif
+                @if ($proceso_importacion == "productos")
+                    <a href="/dashboard/fidepuntos/productos" class="btn boton_menu">Regresar</a>
+                @endif
             </div>
         </div>
         <div class="row">
@@ -65,7 +68,7 @@
                   </div>
                   <div class="row">
                     <div class="col">
-                        <b>Registros Declinados Duplicidad Cliente:</b>
+                        <b>Registros Declinados Duplicidad {{$proceso_importacion}}:</b>
                     </div>
                     <div class="col">
                         {{$registros_declinados_duplicidad_cliente}}
@@ -73,7 +76,7 @@
                   </div>
                   <div class="row">
                     <div class="col">
-                        <b>Filas Declinados Duplicidad Cliente:</b>
+                        <b>Filas Declinados Duplicidad {{$proceso_importacion}}:</b>
                     </div>
                     <div class="col">
                         {{$string_filas_error_duplicidad_cliente}}

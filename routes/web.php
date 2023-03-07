@@ -83,11 +83,49 @@ Route::middleware([
     Route::get('/dashboard/fidepuntos/bibliotecamedia//update/{id}', [FidepuntosController::class, 'bibliotecamedia_fidepuntos_update'])->name('biblioteca.puntos.fidepuntos.update');
     Route::post('/dashboard/fidepuntos/bibliotecamedia//update/save', [FidepuntosController::class, 'bibliotecamedia_fidepuntos_update_save'])->name('biblioteca.puntos.fidepuntos.update.save');
     Route::post('/dashboard/fidepuntos/nuevabibliotecamedia/save', [FidepuntosController::class, 'bibliotecamedia_fidepuntos_create_save'])->name('bibliotecamedia.fidepuntos.create.save');
+    //crud Productos fidepuntos
+    Route::get('/dashboard/fidepuntos/productos', [FidepuntosController::class, 'productos_fidepuntos_index'])->name('productos.fidepuntos');
+    Route::get('/dashboard/fidepuntos/productos/{id}', [FidepuntosController::class, 'productos_fidepuntos_view'])->name('productos.fidepuntos.view');
+    Route::get('/dashboard/fidepuntos/productos/update/{id}', [FidepuntosController::class, 'productos_fidepuntos_update'])->name('productos.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/productos/update/save', [FidepuntosController::class, 'productos_fidepuntos_update_save'])->name('productos.fidepuntos.update.save');
+    Route::get('/dashboard/fidepuntos/nuevoproducto', [FidepuntosController::class, 'productos_fidepuntos_create'])->name('productos.fidepuntos.create');
+    Route::post('/dashboard/fidepuntos/nuevoproducto/save', [FidepuntosController::class, 'productos_fidepuntos_create_save'])->name('productos.fidepuntos.create.save');
+    //crud plan puntos fidepuntos
+    Route::get('/dashboard/fidepuntos/planpuntos', [FidepuntosController::class, 'planpuntos_fidepuntos_index'])->name('planpuntos.fidepuntos');
+    Route::get('/dashboard/fidepuntos/planpuntos/update/{id}', [FidepuntosController::class, 'planpuntos_fidepuntos_update'])->name('planpuntos.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/planpuntos/update/save', [FidepuntosController::class, 'planpuntos_fidepuntos_update_save'])->name('planpuntos.fidepuntos.update.save');
+    //crud puntos x compras fidepuntos
+    Route::get('/dashboard/fidepuntos/puntosxcompra', [FidepuntosController::class, 'puntoscompra_fidepuntos_index'])->name('puntoscompra.fidepuntos');
+    Route::get('/dashboard/fidepuntos/puntoscompra/update/{id}', [FidepuntosController::class, 'puntoscompra_fidepuntos_update'])->name('puntoscompra.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/puntoscompra/update/save', [FidepuntosController::class, 'puntoscompra_fidepuntos_update_save'])->name('puntoscompra.fidepuntos.update.save');
+    //crud puntos x productos fidepuntos
+    Route::get('/dashboard/fidepuntos/puntosxproducto', [FidepuntosController::class, 'puntosproducto_fidepuntos_index'])->name('puntosproducto.fidepuntos');
+    Route::get('/dashboard/fidepuntos/puntosproducto/update/{id}', [FidepuntosController::class, 'puntosproducto_fidepuntos_update'])->name('puntosproducto.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/puntosproducto/update/save', [FidepuntosController::class, 'puntosproducto_fidepuntos_update_save'])->name('puntosproducto.fidepuntos.update.save');
+    //crud Config Fidelizacion Clientes fidepuntos
+    Route::get('/dashboard/fidepuntos/fidelizacionconfig', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_index'])->name('fidelizacionconfig.fidepuntos');
+    Route::get('/dashboard/fidepuntos/fidelizacionconfig/{id}', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_view'])->name('fidelizacionconfig.fidepuntos.view');
+    Route::get('/dashboard/fidepuntos/fidelizacionconfig/update/{id}', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_update'])->name('fidelizacionconfig.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/fidelizacionconfig/update/save', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_update_save'])->name('fidelizacionconfig.fidepuntos.update.save');
+    Route::get('/dashboard/fidepuntos/nuevafidelizacionconfig', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_create'])->name('fidelizacionconfig.fidepuntos.create');
+    Route::post('/dashboard/fidepuntos/nuevafidelizacionconfig/save', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_create_save'])->name('fidelizacionconfig.fidepuntos.create.save');
+
     //Exports Plantillas
     Route::get('/dashboard/fidepuntos/exports/plantilla/clientes', [FidepuntosController::class, 'export_clientes_fidepuntos'])->name('clientes.fidepuntos.export.formato');
+    Route::get('/dashboard/fidepuntos/exports/plantilla/productos', [FidepuntosController::class, 'export_productos_fidepuntos'])->name('productos.fidepuntos.export.formato');
     //Imports Procesos
     Route::post('/dashboard/fidepuntos/imports/clientes', [FidepuntosController::class, 'import_clientes_fidepuntos'])->name('clientes.fidepuntos.import');
+    Route::post('/dashboard/fidepuntos/imports/productos', [FidepuntosController::class, 'import_productos_fidepuntos'])->name('productos.fidepuntos.import');
     //Llamados Ajaxs
     Route::get('/dashboard/fidepuntos/obtenerfabricantesxcompania', [FidepuntosController::class, 'obtenerfabricantesxcompania'])->name('obtenerfabricantesxcompania');
+    Route::get('/dashboard/fidepuntos/obtenerproductosxcompania', [FidepuntosController::class, 'obtenerproductosxcompania'])->name('obtenerproductosxcompania');
+    Route::get('/dashboard/fidepuntos/obtenermarcasxfabricantes', [FidepuntosController::class, 'obtenermarcasxfabricantes'])->name('obtenermarcasxcompania');
+    Route::get('/dashboard/fidepuntos/obtenercategoriasxcompania', [FidepuntosController::class, 'obtenercategoriasxcompania'])->name('obtenercategoriasxcompania');
+    Route::post('/dashboard/fidepuntos/actualizacionimagenprincipal', [FidepuntosController::class, 'actualizacionimagenprincipal'])->name('actualizacionimagenprincipal');
+    // Rutas Actializaciones ERPS
+    Route::post('/dashboard/fidepuntos/actualizacioneserps/clientes', [FidepuntosController::class, 'actualizacion_erp_clientes'])->name('actualizacion.erp.clientes');
+    Route::post('/dashboard/fidepuntos/actualizacioneserps/productos', [FidepuntosController::class, 'actualizacion_erp_productos'])->name('actualizacion.erp.productos');
+
+
 });
 

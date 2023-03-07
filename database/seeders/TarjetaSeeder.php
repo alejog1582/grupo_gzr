@@ -112,7 +112,7 @@ class TarjetaSeeder extends Seeder
 
         HomeTarjeta::create([
             'activo' => '1',
-            'link' => '/dashboard/fidepuntos/activarplanpuntos',
+            'link' => '/dashboard/fidepuntos/planpuntos',
             'titulo' => 'Activar Plan Puntos',
             'proyecto' => 'fidepuntos',
             'descripcion' => 'Administracion Activar Plan Puntos Fidepuntos.'

@@ -15,11 +15,10 @@ class BibliotecaMediaFidepuntosSeeder extends Seeder
     public function run()
     {
         BibliotecaMediaFidepuntos::create([
-            'nombre' => 'Alimento Perro Pro Plan Adultos Raza Mediana - 3 Kg',
-            'url' => 'https://res.cloudinary.com/dikbf3xct/image/upload/v1676563396/fidepuntos_media/alimento-perro-pro-plan-adultos-raza-mediana.png',
+            'nombre' => 'Sin Foto',
+            'url' => 'https://res.cloudinary.com/dikbf3xct/image/upload/v1677019576/fidepuntos_media/xi0njrxhplcipehzygyz.webp',
             'tipo' => 'imagen',
             'descripcion' => 'principal',
         ]);
-
     }
 }

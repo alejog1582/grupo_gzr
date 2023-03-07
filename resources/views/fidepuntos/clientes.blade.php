@@ -17,24 +17,25 @@
 
 <div class="wrapper-fidepuntos">
     @include('fidepuntos.menu')
-     <div class="container">
+    <div class="container">
+        @include('flash::message')
         <div class="row">
-            <div class="col-9">
+            <div class="col-8">
                 <h1>Clientes</h1>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <a href="/dashboard/fidepuntos/nuevocliente" class="btn boton_menu">Crear Cliente</a>
                 <!-- Modal Import Boton-->
-                <button type="button" class="btn boton_menu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn boton_menu" data-bs-toggle="modal" data-bs-target="#importarClientes">
                     Importar
                 </button>
 
                 <!-- Modal Import-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="importarClientes" tabindex="-1" aria-labelledby="importarClientesLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Importar Clientes</h1>
+                                <h1 class="modal-title fs-5" id="importarClientesLabel">Importar Clientes</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -64,6 +65,49 @@
                     </div>
                 </div>
                 <a href="/dashboard/fidepuntos/exports/plantilla/clientes" class="btn boton_menu"><i class="fas fa-download"></i></a>
+                <!-- Modal Import Boton-->
+                <button type="button" class="btn boton_menu" data-bs-toggle="modal" data-bs-target="#actualizarErp">
+                    Actualizar ERP
+                </button>
+
+                <!-- Modal Import-->
+                <div class="modal fade" id="actualizarErp" tabindex="-1" aria-labelledby="actualizarErpLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="actualizarErpLabel">Actualizar Clientes Por ERP</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/dashboard/fidepuntos/actualizacioneserps/clientes" method="POST" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="proceso" value="clientes">
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="compania_id"><b>Compañia *</b></label>
+                                            <select id="compania_id" class="form-control" name="compania_id">
+                                                    <option selected disabled value="">Seleccione una opcion</option>
+                                                @foreach ($companias as $compania)
+                                                    <option value="{{$compania->id}}">{{$compania->nombre_compania}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-6">
+                                            <button type="submit" class="btn boton_menu">Iniciar</button>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                                {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">

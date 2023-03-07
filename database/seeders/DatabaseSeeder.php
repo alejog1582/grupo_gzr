@@ -29,5 +29,9 @@ class DatabaseSeeder extends Seeder
         $this->call(BibliotecaMediaFidepuntosSeeder::class);
         $this->call(DescripcionMediaFidepuntosSeeder::class);
         $this->call(TiposMediaFidepuntosSeeder::class);
+        $this->call(ProductosFidepuntosSeeder::class);
+        $this->call(PlanPuntosFidepuntosSeeder::class);
+        $this->call(PlanPuntosxCompaniaFidepuntosSeeder::class);
+        $this->call(PuntosxComprasFidepuntosSeeder::class);
     }
 }

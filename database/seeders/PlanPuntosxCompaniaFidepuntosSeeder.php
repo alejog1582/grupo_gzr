@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\CategoriasFidepuntos;
+use App\Models\PlanPuntosxCompaniaFidepuntos;
 
-class CategoriasFidepuntosSeeder extends Seeder
+class PlanPuntosxCompaniaFidepuntosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,20 +14,20 @@ class CategoriasFidepuntosSeeder extends Seeder
      */
     public function run()
     {
-        CategoriasFidepuntos::create([
-            'nombre_categoria' => 'Generica',
+        PlanPuntosxCompaniaFidepuntos::create([
+            'plan_puntos_id' => 1,
             'compania_id' => 1,
             'activo' => 1,
         ]);
 
-        CategoriasFidepuntos::create([
-            'nombre_categoria' => 'Generica',
+        PlanPuntosxCompaniaFidepuntos::create([
+            'plan_puntos_id' => 1,
             'compania_id' => 2,
             'activo' => 1,
         ]);
 
-        CategoriasFidepuntos::create([
-            'nombre_categoria' => 'Generica',
+        PlanPuntosxCompaniaFidepuntos::create([
+            'plan_puntos_id' => 1,
             'compania_id' => 3,
             'activo' => 1,
         ]);
