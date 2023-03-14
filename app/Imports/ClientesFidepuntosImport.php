@@ -6,6 +6,7 @@ use App\Models\ClienteFidepuntos;
 use App\Models\CompaniasFidepuntos;
 use App\Models\MembresiasFidepuntos;
 use App\Models\LogsImportacionesFidepuntos;
+use App\Models\Logins;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
@@ -275,6 +276,17 @@ class ClientesFidepuntosImport implements ToCollection
                             'data' => json_encode( $cliente_nuevo ),
                         ]);
                         $registro_log->save();
+                        $login = Logins::where('identificacion', $cliente_nuevo->identificacion)->get();
+                        if (count($login) == 0) {
+                            $login_nuevo = Logins::create([
+                                'identificacion' => $cliente_nuevo->identificacion,
+                                'password' => password_hash($cliente_nuevo->identificacion, PASSWORD_DEFAULT),
+                                'role' => 'cliente',
+                                'proyecto' => 'fidepuntos',
+                                'cliente_id' => $cliente_nuevo->id,
+                            ]);
+                            $login_nuevo->save();
+                        }
                     }
                 }
             }else{

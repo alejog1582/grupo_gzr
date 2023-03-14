@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use App\Models\ClienteFidepuntos;
+use App\Models\Logins;
 //use Log;
 
 class ActualizacionClientesFidepuntos implements ShouldQueue
@@ -102,6 +103,17 @@ class ActualizacionClientesFidepuntos implements ShouldQueue
                     ]);
                     $this->creados = $this->creados + 1;
                     Log::info("se creo cliente. Cedula: " . $c['Identificacion']);
+                    $login = Logins::where('identificacion', $cliente_nuevo->identificacion)->get();
+                    if (count($login) == 0) {
+                        $login_nuevo = Logins::create([
+                            'identificacion' => $cliente_nuevo->identificacion,
+                            'password' => password_hash($cliente_nuevo->identificacion, PASSWORD_DEFAULT),
+                            'role' => 'cliente',
+                            'proyecto' => 'fidepuntos',
+                            'cliente_id' => $cliente_nuevo->id,
+                        ]);
+                        $login_nuevo->save();
+                    }
                 }
             }else{
                 break;

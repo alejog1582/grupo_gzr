@@ -5,14 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LoginsFidepuntos extends Model
+use Laravel\Sanctum\HasApiTokens;
+
+class Logins extends Model
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens;
     /**
      * The database connection used by the model.
      *
      * @var string
      */
-    protected $connection = 'fidepuntos';
+    protected $connection = 'mysql';
     protected $guarded = [];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 }

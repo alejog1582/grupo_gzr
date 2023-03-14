@@ -13,12 +13,16 @@ class CreateLoginsFidepuntosTable extends Migration
      */
     public function up()
     {
-        Schema::connection('fidepuntos')->create('logins_fidepuntos', function (Blueprint $table) {
+        Schema::connection('mysql')->create('logins', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('identificacion')->unique();
+            $table->string('identificacion');
             $table->string('password');
-            $table->date('fecha_ultimo_ingreso');
+            $table->string('role');
+            $table->string('proyecto');
+            $table->date('fecha_ultimo_ingreso')->nullable();
+            $table->integer('cliente_id')->nullable();
+            $table->integer('user_id')->nullable()->unsigned();
         });
     }
 
@@ -29,6 +33,6 @@ class CreateLoginsFidepuntosTable extends Migration
      */
     public function down()
     {
-        Schema::connection('fidepuntos')->dropIfExists('logins_fidepuntos');
+        Schema::connection('mysql')->dropIfExists('logins');
     }
 }

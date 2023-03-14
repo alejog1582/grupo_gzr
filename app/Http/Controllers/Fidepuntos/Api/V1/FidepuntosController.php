@@ -28,6 +28,7 @@ use App\Models\PlanPuntosxCompaniaFidepuntos;
 use App\Models\PuntosxComprasFidepuntos;
 use App\Models\PuntosxproductosFidepuntos;
 use App\Models\ConfigFidelizacionClientesFidepuntos;
+use App\Models\Logins;
 use App\Imports\ProductosFidepuntosImport;
 use App\Jobs\ActualizacionClientesFidepuntos;
 use App\Jobs\ActualizacionProductosFidepuntos;
@@ -155,9 +156,18 @@ class FidepuntosController extends Controller
                 'name' => $compania->nombre_contacto,
                 'email' => $compania->email_contacto,
                 'proyecto_id' => 2,
-                'password' => bcrypt($compania->identificacion),
+                'password' => password_hash($compania->identificacion, PASSWORD_DEFAULT),
             ]);
             $nuevo_usuario->save();
+
+            $login_nuevo = Logins::create([
+                'identificacion' => $compania->identificacion,
+                'password' => password_hash($compania->identificacion, PASSWORD_DEFAULT),
+                'role' => 'compania',
+                'proyecto' => 'fidepuntos',
+                'user_id' => $nuevo_usuario->id,
+            ]);
+            $login_nuevo->save();
         }
 
         //redireccion a listado de compañias
