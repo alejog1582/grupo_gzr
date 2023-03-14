@@ -33,5 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlanPuntosFidepuntosSeeder::class);
         $this->call(PlanPuntosxCompaniaFidepuntosSeeder::class);
         $this->call(PuntosxComprasFidepuntosSeeder::class);
+        $this->call(EstadosPedidosFidepuntosSeeder::class);
     }
 }
