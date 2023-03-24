@@ -109,7 +109,13 @@ Route::middleware([
     Route::post('/dashboard/fidepuntos/fidelizacionconfig/update/save', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_update_save'])->name('fidelizacionconfig.fidepuntos.update.save');
     Route::get('/dashboard/fidepuntos/nuevafidelizacionconfig', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_create'])->name('fidelizacionconfig.fidepuntos.create');
     Route::post('/dashboard/fidepuntos/nuevafidelizacionconfig/save', [FidepuntosController::class, 'fidelizacionconfig_fidepuntos_create_save'])->name('fidelizacionconfig.fidepuntos.create.save');
-
+    //crud Pedidos fidepuntos
+    Route::get('/dashboard/fidepuntos/pedidos', [FidepuntosController::class, 'pedidos_fidepuntos_index'])->name('pedidos.fidepuntos');
+    Route::get('/dashboard/fidepuntos/pedidos/{id}', [FidepuntosController::class, 'pedidos_fidepuntos_view'])->name('pedidos.fidepuntos.view');
+    Route::get('/dashboard/fidepuntos/pedidos/update/{id}', [FidepuntosController::class, 'pedidos_fidepuntos_update'])->name('pedidos.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/pedidos/update/save', [FidepuntosController::class, 'pedidos_fidepuntos_update_save'])->name('pedidos.fidepuntos.update.save');
+    Route::get('/dashboard/fidepuntos/nuevapedidos', [FidepuntosController::class, 'pedidos_fidepuntos_create'])->name('pedidos.fidepuntos.create');
+    Route::post('/dashboard/fidepuntos/nuevapedidos/save', [FidepuntosController::class, 'pedidos_fidepuntos_create_save'])->name('pedidos.fidepuntos.create.save');
     //Exports Plantillas
     Route::get('/dashboard/fidepuntos/exports/plantilla/clientes', [FidepuntosController::class, 'export_clientes_fidepuntos'])->name('clientes.fidepuntos.export.formato');
     Route::get('/dashboard/fidepuntos/exports/plantilla/productos', [FidepuntosController::class, 'export_productos_fidepuntos'])->name('productos.fidepuntos.export.formato');
@@ -118,7 +124,9 @@ Route::middleware([
     Route::post('/dashboard/fidepuntos/imports/productos', [FidepuntosController::class, 'import_productos_fidepuntos'])->name('productos.fidepuntos.import');
     //Llamados Ajaxs
     Route::get('/dashboard/fidepuntos/obtenerfabricantesxcompania', [FidepuntosController::class, 'obtenerfabricantesxcompania'])->name('obtenerfabricantesxcompania');
+    Route::get('/dashboard/fidepuntos/obtenerclientesxcompania', [FidepuntosController::class, 'obtenerclientesxcompania'])->name('obtenerclientesxcompania');
     Route::get('/dashboard/fidepuntos/obtenerproductosxcompania', [FidepuntosController::class, 'obtenerproductosxcompania'])->name('obtenerproductosxcompania');
+    Route::get('/dashboard/fidepuntos/obtenerproductospedidosxcompania', [FidepuntosController::class, 'obtenerproductospedidosxcompania'])->name('obtenerproductospedidosxcompania');
     Route::get('/dashboard/fidepuntos/obtenermarcasxfabricantes', [FidepuntosController::class, 'obtenermarcasxfabricantes'])->name('obtenermarcasxcompania');
     Route::get('/dashboard/fidepuntos/obtenercategoriasxcompania', [FidepuntosController::class, 'obtenercategoriasxcompania'])->name('obtenercategoriasxcompania');
     Route::post('/dashboard/fidepuntos/actualizacionimagenprincipal', [FidepuntosController::class, 'actualizacionimagenprincipal'])->name('actualizacionimagenprincipal');

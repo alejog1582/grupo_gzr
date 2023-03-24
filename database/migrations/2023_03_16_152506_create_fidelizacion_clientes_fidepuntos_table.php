@@ -17,10 +17,7 @@ class CreateFidelizacionClientesFidepuntosTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('config_fidelizacion_cliente_id')->unsigned();
-            $table->integer('compra_cliente_id')->unsigned();
-            $table->integer('cliente_id')->unsigned();
-            $table->date('fecha_compra')->nullable();
-            $table->integer('producto_id')->unsigned();
+            $table->integer('pedido_id')->unsigned();
             $table->boolean('canjeado')->nullable();
         });
     }

@@ -30,6 +30,7 @@ class ProductosFidepuntosSeeder extends Seeder
             'objetivo' => 'ecommerce',
             'oferta' => 0,
             'precio_unitario' => 125900,
+            'precio' => 125900,
             'media_id_principal' => 1,
         ]);
 
@@ -47,7 +48,8 @@ class ProductosFidepuntosSeeder extends Seeder
             'tipo' => 'producto',
             'objetivo' => 'ecommerce',
             'oferta' => 0,
-            'precio_unitario' => 125900,
+            'precio_unitario' => 25900,
+            'precio' => 25900,
             'media_id_principal' => 1,
         ]);
 

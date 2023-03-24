@@ -128,15 +128,15 @@
                                         <img src="{{$producto->mediaprincial->url}}" alt="" width="100%">
                                         @if ($producto->mediaprincial->id == 1)
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarImagenPrincipalModal">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarImagenPrincipalModal{{$producto->id}}">
                                                 Editar
                                             </button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="editarImagenPrincipalModal" tabindex="-1" aria-labelledby="editarImagenPrincipalModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="editarImagenPrincipalModal{{$producto->id}}" tabindex="-1" aria-labelledby="editarImagenPrincipalModalLabel{{$producto->id}}" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="editarImagenPrincipalModalLabel">Editar Imagen Principal</h5>
+                                                        <h5 class="modal-title" id="editarImagenPrincipalModalLabel{{$producto->id}}">Editar Imagen Principal</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">

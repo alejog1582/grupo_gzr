@@ -29,6 +29,10 @@ use App\Models\PuntosxComprasFidepuntos;
 use App\Models\PuntosxproductosFidepuntos;
 use App\Models\ConfigFidelizacionClientesFidepuntos;
 use App\Models\Logins;
+use App\Models\PedidosFidepuntos;
+use App\Models\PedidosxProductosFidepuntos;
+use App\Models\MovimientosPuntosFidepuntos;
+use App\Models\FidelizacionClientesFidepuntos;
 use App\Imports\ProductosFidepuntosImport;
 use App\Jobs\ActualizacionClientesFidepuntos;
 use App\Jobs\ActualizacionProductosFidepuntos;
@@ -1739,6 +1743,259 @@ class FidepuntosController extends Controller
     }
     //Fin Crud fidelizacionconfig Fidepuntos
 
+    //Inicio Crud Pedidos Fidepuntos
+    //Pedidos fidepuntos index
+    public function pedidos_fidepuntos_index()
+    {
+        $usuario = \Auth::user();
+        $pedidos = PedidosFidepuntos::all();
+        return view('fidepuntos/pedidos', [
+			'usuario' => $usuario,
+            'pedidos' => $pedidos
+		]);
+
+    }
+
+    //Vista de un Pedido fidepuntos
+    public function pedidos_fidepuntos_view($id)
+    {
+        $usuario = \Auth::user();
+        $pedido = PedidosFidepuntos::find($id);
+        $productosxpeidos = PedidosxProductosFidepuntos::where("pedido_id", $id)->get();
+        return view('fidepuntos/viewpedido', [
+			'usuario' => $usuario,
+            'pedido' => $pedido,
+            'productosxpeidos' => $productosxpeidos,
+		]);
+
+    }
+    //Edicion de una Categoria fidepuntos
+    public function pedidos_fidepuntos_update($id)
+    {
+        $usuario = \Auth::user();
+        $categoria = PedidosFidepuntos::find($id);
+        return view('fidepuntos/updatecategoria', [
+			'usuario' => $usuario,
+            'categoria' => $categoria,
+		]);
+
+    }
+
+    //Guardad de la edicion de una pedidos fidepuntos
+    public function pedidos_fidepuntos_update_save(Request $request)
+    {
+        $nombre_categoria = ucwords(strtolower($request->nombre_categoria));
+        $categoria = PedidosFidepuntos::find($request->categoria_id);
+
+        $categoria->nombre_categoria = $nombre_categoria;
+        $categoria->activo = $request->activo;
+
+        $categoria->save();
+
+        //redireccion a listado de pedidos
+        $usuario = \Auth::user();
+        $pedidos = PedidosFidepuntos::all();
+        return view('fidepuntos/pedidos', [
+			'usuario' => $usuario,
+            'pedidos' => $pedidos
+		]);
+
+    }
+
+    //Vista de Creacion de nueva categoria
+    public function pedidos_fidepuntos_create()
+    {
+        $usuario = \Auth::user();
+        $companias = CompaniasFidepuntos::where('activo', '1')->get();
+        return view('fidepuntos/createpedido', [
+			'usuario' => $usuario,
+			'companias' => $companias,
+		]);
+
+    }
+
+    //Guarda un nuevo Pedido
+    public function pedidos_fidepuntos_create_save(Request $request)
+    {
+        $productos = ProductosFidepuntos::where('compania_id', $request->compania_id)->where('activo', '1')->get();
+        $prods_seleccionados = [];
+        $valor_pedido = 0;
+        $cantidad = 0;
+        $puntos_asignar_compras = 0;
+        $puntos_asignar_productos = 0;
+        foreach ($productos as $key => $prod) {
+            $seleccionador_prod = "seleccionadoprod-" . $prod->id;
+            $cantidad_prod = "cantidadprod-" . $prod->id;
+            if ($request->{$seleccionador_prod}) {
+                $prod_selec_tmp = array("id_producto" => $request->{$seleccionador_prod},
+                            "cantidad" => $request->{$cantidad_prod});
+                array_push($prods_seleccionados, $prod_selec_tmp);
+            }
+        }
+        if (count($prods_seleccionados) > 0) {
+            $cod_aleatorio = rand(1000000,9999999);
+            $cod_pedido = $request->compania_id . "-" . $cod_aleatorio;
+            $cliente = ClienteFidepuntos::find($request->cliente_id);
+            $pedido_nuevo = PedidosFidepuntos::create([
+                'codigo_pedido' => $cod_pedido,
+                'valor_pedido' => $valor_pedido,
+                'estado_pedido' => 1,
+                'compania_id' => $request->compania_id,
+                'identificacion_cliente' => $cliente->identificacion,
+                'cliente_id' => $cliente->id,
+                'fecha_envio' => $request->fecha_envio,
+                'metodo_pago' => $request->metodo_pago,
+                'fecha_pago' => $request->fecha_pago,
+            ]);
+            $pedido_nuevo->save();
+
+            foreach ($prods_seleccionados as $key => $ps) {
+                $cantidad = 0;
+                $producto_tmp = ProductosFidepuntos::find($ps["id_producto"]);
+                if ($ps["cantidad"] > 0) {
+                    $cantidad = $ps["cantidad"];
+                }else{
+                    $cantidad = 1;
+                }
+                $pedidoxproducto_nuevo = PedidosxProductosFidepuntos::create([
+                    'pedido_id' => $pedido_nuevo->id,
+                    'codigo_producto' => $producto_tmp->codigo_producto,
+                    'producto_id' => $producto_tmp->id,
+                    'cantidad' => $cantidad,
+                    'objetivo' => $producto_tmp->objetivo,
+                    'oferta' => $producto_tmp->oferta,
+                    'precio_unitario' => $producto_tmp->precio_unitario,
+                    'iva' => $producto_tmp->iva,
+                    'impoconsumo' => $producto_tmp->impoconsumo,
+                    'descuento_porcentaje' => $producto_tmp->descuento_porcentaje,
+                    'descuento_valor' => $producto_tmp->descuento_valor,
+                    'precio' => $producto_tmp->precio,
+                    'precio_puntos' => $producto_tmp->precio_puntos,
+                    'fidelizacion' => $producto_tmp->fidelizacion,
+                ]);
+                $pedidoxproducto_nuevo->save();
+                $valor_pedido = $valor_pedido + ($producto_tmp->precio * $cantidad);
+                $pedido_nuevo->valor_pedido = $valor_pedido;
+                $pedido_nuevo->save();
+            }
+            // Se valida si la compañia cuenta con plan puntos x compra
+            $plan_puntosxcompras = PlanPuntosxCompaniaFidepuntos::where('compania_id', $request->compania_id)->where('plan_puntos_id', '1')->first();
+            if ($plan_puntosxcompras) {
+                $config_puntosxcompra = PuntosxComprasFidepuntos::where('plan_puntos_compania_id', $plan_puntosxcompras->id)->first();
+                $puntos_asignar_compras = round($valor_pedido / $config_puntosxcompra->valor_punto);
+                $movimiento_puntos_compra_nuevo = MovimientosPuntosFidepuntos::create([
+                    'pedido_id' => $pedido_nuevo->id,
+                    'puntaje_anterior' => $cliente->puntos_total,
+                    'tipo' => "compras",
+                    'puntos_compras_id' => $config_puntosxcompra->id,
+                    'puntos_otrogados' => $puntos_asignar_compras,
+                    'puntos_actuales' => $cliente->puntos_total + $puntos_asignar_compras,
+                ]);
+                $movimiento_puntos_compra_nuevo->save();
+                $cliente->puntos_total = $cliente->puntos_total + $puntos_asignar_compras;
+                $cliente->save();
+            }
+            // Se valida si la compañia cuenta con plan puntos x compra
+            $plan_puntosxproductos = PlanPuntosxCompaniaFidepuntos::where('compania_id', $request->compania_id)->where('plan_puntos_id', '2')->first();
+            if ($plan_puntosxproductos) {
+                $config_puntosxproductos = PuntosxproductosFidepuntos::where('plan_puntos_compania_id', $plan_puntosxproductos->id)->get();
+                foreach ($prods_seleccionados as $key => $prod_selec) {
+                    $producto_aplicar_puntos = ProductosFidepuntos::find($prod_selec["id_producto"]);
+                    foreach ($config_puntosxproductos as $key => $cpp) {
+                        if ($cpp->fabricante_id != null && $producto_aplicar_puntos->fabricante_id == $cpp->fabricante_id) {
+                            $puntos_asignar_productos = $puntos_asignar_productos + $cpp->puntaje_asignado;
+                            $movimiento_puntos_fabricante_nuevo = MovimientosPuntosFidepuntos::create([
+                                'pedido_id' => $pedido_nuevo->id,
+                                'puntaje_anterior' => $cliente->puntos_total,
+                                'tipo' => "productos",
+                                'puntos_productos_id' => $cpp->id,
+                                'puntos_otrogados' => $cpp->puntaje_asignado,
+                                'puntos_actuales' => $cliente->puntos_total + $puntos_asignar_productos,
+                            ]);
+                            $movimiento_puntos_fabricante_nuevo->save();
+                            $cliente->puntos_total = $cliente->puntos_total + $puntos_asignar_productos;
+                            $cliente->save();
+                            $puntos_asignar_productos = 0;
+                        }
+                        if ($cpp->marca_id != null && $producto_aplicar_puntos->marca_id == $cpp->marca_id) {
+                            $puntos_asignar_productos = $puntos_asignar_productos + $cpp->puntaje_asignado;
+                            $movimiento_puntos_marca_nuevo = MovimientosPuntosFidepuntos::create([
+                                'pedido_id' => $pedido_nuevo->id,
+                                'puntaje_anterior' => $cliente->puntos_total,
+                                'tipo' => "productos",
+                                'puntos_productos_id' => $cpp->id,
+                                'puntos_otrogados' => $cpp->puntaje_asignado,
+                                'puntos_actuales' => $cliente->puntos_total + $puntos_asignar_productos,
+                            ]);
+                            $movimiento_puntos_marca_nuevo->save();
+                            $cliente->puntos_total = $cliente->puntos_total + $puntos_asignar_productos;
+                            $cliente->save();
+                            $puntos_asignar_productos = 0;
+                        }
+                        if ($cpp->categoria_id != null && $producto_aplicar_puntos->categoria_id == $cpp->categoria_id) {
+                            $puntos_asignar_productos = $puntos_asignar_productos + $cpp->puntaje_asignado;
+                            $movimiento_puntos_categorias_nuevo = MovimientosPuntosFidepuntos::create([
+                                'pedido_id' => $pedido_nuevo->id,
+                                'puntaje_anterior' => $cliente->puntos_total,
+                                'tipo' => "productos",
+                                'puntos_productos_id' => $cpp->id,
+                                'puntos_otrogados' => $cpp->puntaje_asignado,
+                                'puntos_actuales' => $cliente->puntos_total + $puntos_asignar_productos,
+                            ]);
+                            $movimiento_puntos_categorias_nuevo->save();
+                            $cliente->puntos_total = $cliente->puntos_total + $puntos_asignar_productos;
+                            $cliente->save();
+                            $puntos_asignar_productos = 0;
+                        }
+                        if ($cpp->producto_id != null && $producto_aplicar_puntos->id == $cpp->producto_id) {
+                            $puntos_asignar_productos = $puntos_asignar_productos + $cpp->puntaje_asignado;
+                            $movimiento_puntos_producto_nuevo = MovimientosPuntosFidepuntos::create([
+                                'pedido_id' => $pedido_nuevo->id,
+                                'puntaje_anterior' => $cliente->puntos_total,
+                                'tipo' => "productos",
+                                'puntos_productos_id' => $cpp->id,
+                                'puntos_otrogados' => $cpp->puntaje_asignado,
+                                'puntos_actuales' => $cliente->puntos_total + $puntos_asignar_productos,
+                            ]);
+                            $movimiento_puntos_producto_nuevo->save();
+                            $cliente->puntos_total = $cliente->puntos_total + $puntos_asignar_productos;
+                            $cliente->save();
+                            $puntos_asignar_productos = 0;
+                        }
+                    }
+                }
+            }
+            // Se valida si hay productos con Fidelizacion de clientes
+            $plan_fidelizacion = PlanPuntosxCompaniaFidepuntos::where('compania_id', $request->compania_id)->where('plan_puntos_id', '3')->first();
+            if ($plan_fidelizacion) {
+                $config_fidelizacion = ConfigFidelizacionClientesFidepuntos::where('plan_puntos_compania_id', $plan_fidelizacion->id)->get();
+                foreach ($config_fidelizacion as $key => $cf) {
+                    foreach ($prods_seleccionados as $key => $prod_fidelizacion) {
+                        if ($cf->producto_id ==  $prod_fidelizacion["id_producto"]) {
+                            $fidelizacion_nuevo = FidelizacionClientesFidepuntos::create([
+                                'config_fidelizacion_cliente_id' => $cf->id,
+                                'pedido_id' => $pedido_nuevo->id,
+                                'canjeado' => 0,
+                            ]);
+                            $fidelizacion_nuevo->save();
+                        }
+                    }
+                }
+            }
+            Flash::success('Pedido creado exitosamente.');
+        }else{
+            Flash::error('No se creo pedido por no tener productos');
+        }
+        //redireccion a listado de pedidos
+        $usuario = \Auth::user();
+        $pedidos = PedidosFidepuntos::all();
+        return view('fidepuntos/pedidos', [
+			'usuario' => $usuario,
+            'pedidos' => $pedidos
+		]);
+    }
+    //Fin Crud pedidos Fidepuntos
+
     //Inicio Import de Clientes Fidepuntos
 
     public function export_clientes_fidepuntos()
@@ -1874,6 +2131,20 @@ class FidepuntosController extends Controller
         $fabricantes = FabricantesFidepuntos::where('compania_id', $compania_id)->get();
 
         return $fabricantes;
+    }
+    public function obtenerclientesxcompania(Request $request)
+    {
+        $compania_id = $request->get('compania_id');
+        $clientes = ClienteFidepuntos::where('compania_id', $compania_id)->orderBy('identificacion','ASC')->get();
+
+        return $clientes;
+    }
+    public function obtenerproductospedidosxcompania(Request $request)
+    {
+        $compania_id = $request->get('compania_id');
+        $productos = ProductosFidepuntos::where('compania_id', $compania_id)->where('activo', '1')->orderBy('codigo_producto','ASC')->get();
+
+        return $productos;
     }
     public function obtenerproductosxcompania(Request $request)
     {

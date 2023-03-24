@@ -144,10 +144,10 @@ class TarjetaSeeder extends Seeder
 
         HomeTarjeta::create([
             'activo' => '1',
-            'link' => '/dashboard/fidepuntos/cargueventaspuntos',
-            'titulo' => 'Cargue Ventas Puntos',
+            'link' => '/dashboard/fidepuntos/pedidos',
+            'titulo' => 'Pedidos',
             'proyecto' => 'fidepuntos',
-            'descripcion' => 'Administracion Cargue Venta Puntos Fidepuntos.'
+            'descripcion' => 'Administracion Pedidos Fidepuntos.'
         ]);
 
         HomeTarjeta::create([
