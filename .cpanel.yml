@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/m81heg7dafws/public_html/
-    - /bin/rsync -av public/  $DEPLOYPATH
+    - /bin/cp public/  $DEPLOYPATH
