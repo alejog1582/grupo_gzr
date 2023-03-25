@@ -2,4 +2,12 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/m81heg7dafws/public_html/
-    - /bin/cp -R public/  $DEPLOYPATH
+    - /bin/cp -r public/css  $DEPLOYPATH
+    - /bin/cp -r public/images  $DEPLOYPATH
+    - /bin/cp -r public/js  $DEPLOYPATH
+    - /bin/cp -r public/storage  $DEPLOYPATH
+    - /bin/cp public/.htaccess  $DEPLOYPATH
+    - /bin/cp public/favicon.ico  $DEPLOYPATH
+    - /bin/cp public/index.php  $DEPLOYPATH
+    - /bin/cp public/mix-manifest.json  $DEPLOYPATH
+    - /bin/cp public/robots.txt  $DEPLOYPATH
