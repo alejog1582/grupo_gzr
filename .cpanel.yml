@@ -7,6 +7,5 @@ deployment:
     - /bin/cp -r public/js  $DEPLOYPATH
     - /bin/cp public/.htaccess  $DEPLOYPATH
     - /bin/cp public/favicon.ico  $DEPLOYPATH
-    - /bin/cp public/index.php  $DEPLOYPATH
     - /bin/cp public/mix-manifest.json  $DEPLOYPATH
     - /bin/cp public/robots.txt  $DEPLOYPATH
