@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('eval/v1/clientes', App\Http\Controllers\Eval_\Api\V1\ClienteEvalController::class);
 Route::apiResource('fidepuntos/v1/clientes', App\Http\Controllers\Fidepuntos\Api\V1\ClienteFidepuntosController::class)->middleware('auth:sanctum');
 Route::apiResource('fidepuntos/v1/pedidos', App\Http\Controllers\Fidepuntos\Api\V1\PedidosFidepuntosController::class)->middleware('auth:sanctum');
+Route::apiResource('fidepuntos/v1/productos', App\Http\Controllers\Fidepuntos\Api\V1\ProductosFidepuntosController::class);
 Route::apiResource('grupogzr/v1/login', App\Http\Controllers\Grupogzr\Api\V1\LoginController::class);
 /* ->middleware('auth:sanctum'); */
 /* //Rutas Crud Clientas Eval
