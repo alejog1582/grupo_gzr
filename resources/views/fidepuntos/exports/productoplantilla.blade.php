@@ -29,8 +29,8 @@
             <td>*requerido</td>
             <td>opcional</td>
             <td>opcional</td>
-            <td>opcional</td>
-            <td>opcional</td>
+            <td>*requerido</td>
+            <td>*requerido</td>
             <td>opcional</td>
             <td>opcional</td>
             <td>producto, servicio *requerido</td>

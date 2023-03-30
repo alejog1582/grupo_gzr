@@ -954,7 +954,7 @@ class FidepuntosController extends Controller
             $slugs = null;
         }
 
-        $uploadedMediaUrl = Cloudinary::uploadFile( $request ->file( 'media' )->getRealPath (), ['folder' => 'fidepuntos_media'])->getSecurePath ();
+        $uploadedMediaUrl = Cloudinary::uploadFile( $request ->file( 'media' )->getRealPath (), ['folder' => 'puntosgroup_media'])->getSecurePath ();
 
         $media = BibliotecaMediaFidepuntos::create([
             'nombre' => $nombre_media,
@@ -1176,7 +1176,7 @@ class FidepuntosController extends Controller
 
             if ($request->media_principal != null) {
 
-                $uploadedMediaUrl = Cloudinary::uploadFile( $request ->file( 'media_principal' )->getRealPath (), ['folder' => 'fidepuntos_media'])->getSecurePath ();
+                $uploadedMediaUrl = Cloudinary::uploadFile( $request ->file( 'media_principal' )->getRealPath (), ['folder' => 'puntosgroup_media'])->getSecurePath ();
 
                 $media = BibliotecaMediaFidepuntos::create([
                     'nombre' => $nombre_producto,
@@ -2173,7 +2173,7 @@ class FidepuntosController extends Controller
         $producto = ProductosFidepuntos::find($request->producto_id);
 
 
-        $uploadedMediaUrlPrincipal = Cloudinary::uploadFile( $request ->file( 'imagen_principal' )->getRealPath (), ['folder' => 'fidepuntos_media'])->getSecurePath ();
+        $uploadedMediaUrlPrincipal = Cloudinary::uploadFile( $request ->file( 'imagen_principal' )->getRealPath (), ['folder' => 'puntosgroup_media'])->getSecurePath ();
 
         $media = BibliotecaMediaFidepuntos::create([
             'nombre' => $producto->nombre_producto,

@@ -14,10 +14,10 @@ class FabricantesFidepuntosSeeder extends Seeder
      */
     public function run()
     {
-        FabricantesFidepuntos::create([
+        /* FabricantesFidepuntos::create([
             'nombre_fabricante' => 'Purina',
             'compania_id' => 1,
             'activo' => 1,
-        ]);
+        ]); */
     }
 }

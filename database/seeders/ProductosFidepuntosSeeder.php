@@ -15,7 +15,7 @@ class ProductosFidepuntosSeeder extends Seeder
      */
     public function run()
     {
-        ProductosFidepuntos::create([
+        /* ProductosFidepuntos::create([
             'nombre_producto' => 'Alimento Perro Pro Plan Adultos Raza Mediana - 3 Kg',
             'codigo_producto' => '140031',
             'ean' => '140031EAN',
@@ -51,7 +51,7 @@ class ProductosFidepuntosSeeder extends Seeder
             'precio_unitario' => 25900,
             'precio' => 25900,
             'media_id_principal' => 1,
-        ]);
+        ]); */
 
     }
 }

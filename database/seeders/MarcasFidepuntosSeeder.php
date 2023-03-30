@@ -14,11 +14,11 @@ class MarcasFidepuntosSeeder extends Seeder
      */
     public function run()
     {
-        MarcasFidepuntos::create([
+        /* MarcasFidepuntos::create([
             'nombre_marca' => 'Pro Plan',
             'compania_id' => 1,
             'fabricante_id' => 1,
             'activo' => 1,
-        ]);
+        ]); */
     }
 }
