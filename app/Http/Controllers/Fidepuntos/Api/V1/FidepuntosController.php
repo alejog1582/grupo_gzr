@@ -2157,7 +2157,7 @@ class FidepuntosController extends Controller
     public function obtenermarcasxfabricantes(Request $request)
     {
         $fabricante_id = $request->get('fabricante_id');
-        $marcas = MarcasFidepuntos::where('compania_id', $fabricante_id)->get();
+        $marcas = MarcasFidepuntos::where('fabricante_id', $fabricante_id)->get();
 
         return $marcas;
     }
