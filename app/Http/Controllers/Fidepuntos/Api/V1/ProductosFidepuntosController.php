@@ -57,6 +57,7 @@ class ProductosFidepuntosController extends Controller
                 'categoria' => $pf->categoria->nombre_categoria,
                 'compania' => $pf->compania->nombre_compania,
                 'inventario' => intval($pf->inventario),
+                'cantidad' => 1,
                 'tipo' => $pf->tipo,
                 'objetivo' => $pf->objetivo,
                 'oferta' => $pf->oferta,
