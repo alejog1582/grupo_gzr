@@ -37,8 +37,14 @@ class ProductosFidepuntosController extends Controller
      */
     public function show($id)
     {
-        $productos = [];
+        $categorias_ecommerce = [];
+        $categorias_ecommerce_prov = [];
+        $categorias_canje = [];
+        $categorias_canje_prov = [];
+        $productosEcommerce = [];
+        $productosCanje = [];
         $productosFidepuntos = ProductosFidepuntos::where('compania_id', $id)->where('activo', 1)->get();
+        //Comentario* Se agrupan los productos por objetivo ecommerce o canje
         foreach ($productosFidepuntos as $key => $pf) {
             $producto_tmp = array(
                 'id' => $pf->id,
@@ -64,9 +70,59 @@ class ProductosFidepuntosController extends Controller
                 'fidelizacion' => $pf->fidelizacion,
                 'media_id_principal' => $pf->mediaprincial->url,
             );
-            array_push($productos, $producto_tmp);
+            if ($pf->objetivo == 'ecommerce') {
+                array_push($productosEcommerce, $producto_tmp);
+            }
+            if ($pf->objetivo == 'canje') {
+                array_push($productosCanje, $producto_tmp);
+            }
         }
-        return $productos;
+
+        //Comentario* Se extraen las categorias para cada uno de los tipos de productos
+        foreach ($productosFidepuntos as $key => $pfcatgeneral) {
+            if (!in_array($pfcatgeneral->categoria->nombre_categoria, $categorias_ecommerce_prov) && $pfcatgeneral->objetivo == 'ecommerce') {
+                array_push($categorias_ecommerce_prov, $pfcatgeneral->categoria->nombre_categoria);
+            }
+            if (!in_array($pfcatgeneral->categoria->nombre_categoria, $categorias_canje_prov) && $pfcatgeneral->objetivo == 'canje') {
+                array_push($categorias_canje_prov, $pfcatgeneral->categoria->nombre_categoria);
+            }
+        }
+
+        //Comentario* Se relaciona categorias con prodcutos para tienda ecommerce
+        foreach ($categorias_ecommerce_prov as $key => $cep) {
+            $prod_cat_ecom_tmp = [];
+            foreach ($productosEcommerce as $key => $pec) {
+                if ($cep == $pec['categoria']) {
+                    array_push($prod_cat_ecom_tmp, $pec);
+                }
+            }
+            $cat_ecommerce_tmp = array(
+                'nombre_categoria' => $cep,
+                'productos' => $prod_cat_ecom_tmp,
+            );
+            array_push($categorias_ecommerce, $cat_ecommerce_tmp);
+        }
+
+        //Comentario* Se relaciona categorias con prodcutos para catalago
+        foreach ($categorias_canje_prov as $key => $ccp) {
+            $prod_cat_canje_tmp = [];
+            foreach ($productosCanje as $key => $pc) {
+                if ($ccp == $pc['categoria']) {
+                    array_push($prod_cat_canje_tmp, $pc);
+                }
+            }
+            $cat_canje_tmp = array(
+                'nombre_categoria' => $ccp,
+                'productos' => $prod_cat_canje_tmp,
+            );
+            array_push($categorias_canje, $cat_canje_tmp);
+        }
+
+        //Comentario* Se construye el objeto final
+        return response()->json([
+            "tienda_online" => $categorias_ecommerce,
+            "catalogo" => $categorias_canje,
+        ]);
     }
 
     /**
