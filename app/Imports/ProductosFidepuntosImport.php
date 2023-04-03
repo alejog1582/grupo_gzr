@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Imports;
+ini_set('upload_max_filesize', '50M');
+ini_set("memory_limit", "1000M");
+set_time_limit(0);
 
 use App\Models\ProductosFidepuntos;
 use App\Models\CompaniasFidepuntos;
