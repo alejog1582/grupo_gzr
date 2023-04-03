@@ -53,7 +53,7 @@ class ClienteFidepuntosController extends Controller
             "identificacion" => $clienteFidepunto->identificacion,
             "nombre_completo" => $clienteFidepunto->nombre_completo,
             "nombre_comercial" => $clienteFidepunto->nombre_comercial,
-            "puntos" => $clienteFidepunto->puntos_total,
+            "puntos" => intval($clienteFidepunto->puntos_total),
             "celular" => $clienteFidepunto->celular,
             "telefono" => $clienteFidepunto->telefono,
             "email" => $clienteFidepunto->email,
