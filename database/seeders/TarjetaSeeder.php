@@ -142,6 +142,15 @@ class TarjetaSeeder extends Seeder
             'descripcion' => 'Administracion Config Fidelizacion Fidepuntos.'
         ]);
 
+
+        HomeTarjeta::create([
+            'activo' => '1',
+            'link' => '/dashboard/fidepuntos/carguepuntosfidelizacion',
+            'titulo' => 'Cargue Puntos',
+            'proyecto' => 'fidepuntos',
+            'descripcion' => 'Administracion Cargue Puntos Fidelizacion Fidepuntos.'
+        ]);
+
         HomeTarjeta::create([
             'activo' => '1',
             'link' => '/dashboard/fidepuntos/pedidos',
@@ -152,26 +161,10 @@ class TarjetaSeeder extends Seeder
 
         HomeTarjeta::create([
             'activo' => '1',
-            'link' => '/dashboard/fidepuntos/cargueventasfidelizacion',
-            'titulo' => 'Cargue Ventas Fidelizacion',
+            'link' => '/dashboard/fidepuntos/mensajes',
+            'titulo' => 'Mensajes',
             'proyecto' => 'fidepuntos',
-            'descripcion' => 'Administracion Cargue Venta Fidelizacion Fidepuntos.'
-        ]);
-
-        HomeTarjeta::create([
-            'activo' => '1',
-            'link' => '/dashboard/fidepuntos/pedidoscanjeproducto',
-            'titulo' => 'Pedidos Canje de Productos',
-            'proyecto' => 'fidepuntos',
-            'descripcion' => 'Administracion pedidos canje de productos Fidepuntos.'
-        ]);
-
-        HomeTarjeta::create([
-            'activo' => '1',
-            'link' => '/dashboard/fidepuntos/pedidosecommerce',
-            'titulo' => 'Pedidos Ecommerce',
-            'proyecto' => 'fidepuntos',
-            'descripcion' => 'Administracion pedidos ecommerce Fidepuntos.'
+            'descripcion' => 'Administracion Mensajes Fidepuntos.'
         ]);
     }
 }

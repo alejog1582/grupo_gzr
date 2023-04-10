@@ -13,7 +13,7 @@
             <div class="col">
                 <div class="card formulario-login">
                     <div class="card-body">
-                      <h5 class="card-title">{{$tarjeta->titulo}}</h5>
+                      <h3 class="card-title">{{$tarjeta->titulo}}</h3>
                       <p class="card-text">{{$tarjeta->descripcion}}</p>
                       <a href="{{$tarjeta->link}}" class="boton_menu">Ver Más</a>
                     </div>

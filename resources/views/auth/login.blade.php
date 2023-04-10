@@ -5,7 +5,7 @@
     <div class="row justify-content-center pt-5 mt-5 m-1">
         <div class="col-md-4 formulario-login">
             <div class="form-group pt-3 text-center">
-                <h1 class="text-light">INICIAR SESIÓN</h1>
+                <h1 class="text-iniciar-sesion">INICIAR SESIÓN</h1>
             </div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf

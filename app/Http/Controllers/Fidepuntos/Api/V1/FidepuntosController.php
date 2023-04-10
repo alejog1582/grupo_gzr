@@ -33,6 +33,7 @@ use App\Models\PedidosFidepuntos;
 use App\Models\PedidosxProductosFidepuntos;
 use App\Models\MovimientosPuntosFidepuntos;
 use App\Models\FidelizacionClientesFidepuntos;
+use App\Models\MensajesFidepuntos;
 use App\Imports\ProductosFidepuntosImport;
 use App\Jobs\ActualizacionClientesFidepuntos;
 use App\Jobs\ActualizacionProductosFidepuntos;
@@ -1995,6 +1996,20 @@ class FidepuntosController extends Controller
 		]);
     }
     //Fin Crud pedidos Fidepuntos
+
+    //Inicio Crud Mensajes Fidepuntos
+    //Pedidos fidepuntos index
+    public function mensajes_fidepuntos_index()
+    {
+        $usuario = \Auth::user();
+        $mensajes = MensajesFidepuntos::all();
+        return view('fidepuntos/mensajes', [
+			'usuario' => $usuario,
+            'mensajes' => $mensajes
+		]);
+
+    }
+    //Fin Crud Mensajes Fidepuntos
 
     //Inicio Import de Clientes Fidepuntos
 

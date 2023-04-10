@@ -20,14 +20,14 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Compañia {{$compania->nombre_compania}}</h1>
+                <h1 class="titulo-vista">Compañia {{$compania->nombre_compania}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/companias" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -37,6 +37,7 @@
                         {{$compania->id}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Tipo:</b>
@@ -45,6 +46,7 @@
                         {{$compania->tipo}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Identificacion:</b>
@@ -53,6 +55,7 @@
                         {{$compania->identificacion}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Nombre Compañia:</b>
@@ -61,6 +64,7 @@
                         {{$compania->nombre_compania}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Nombre Contacto:</b>
@@ -69,6 +73,7 @@
                         {{$compania->nombre_contacto}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Celular Contacto:</b>
@@ -77,6 +82,7 @@
                         {{$compania->celular_contacto}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Telefono Contacto:</b>
@@ -85,6 +91,7 @@
                         {{$compania->telefono_contacto}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Email Contacto:</b>
@@ -93,6 +100,7 @@
                         {{$compania->email_contacto}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Direccion:</b>
@@ -101,6 +109,7 @@
                         {{$compania->direccion}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Ciudad:</b>
@@ -109,6 +118,7 @@
                         {{$compania->ciudad}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Codigo Postal:</b>
@@ -117,6 +127,7 @@
                         {{$compania->codigo_postal}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Activo:</b>
@@ -125,6 +136,7 @@
                         {{$compania->activo}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>ERP:</b>

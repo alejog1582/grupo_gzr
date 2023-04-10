@@ -64,7 +64,8 @@ class MensajesFidepuntosController extends Controller
             'celular' => $celular,
             'plan_cotizacion' => $plan_cotizacion,
             'nombre_empresa' => $nombre_empresa,
-            'mensaje' => $mensaje
+            'mensaje' => $mensaje,
+            'estado' => 'nuevo'
         ]);
         $mensaje_nuevo->save();
 

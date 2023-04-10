@@ -21,7 +21,7 @@
         @include('flash::message')
         <div class="row">
             <div class="col-8">
-                <h1>Clientes</h1>
+                <h1 class="titulo-vista">Clientes</h1>
             </div>
             <div class="col-4">
                 <a href="/dashboard/fidepuntos/nuevocliente" class="btn boton_menu">Crear Cliente</a>
@@ -112,7 +112,7 @@
         </div>
         <div class="row">
             <table class="table">
-                <thead>
+                <thead  class="encabezado_tabla">
                   <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Identificacion</th>
@@ -123,7 +123,7 @@
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="cuerpo_tabla">
                     @foreach ($clientes as $cliente)
                         @if ($cliente->compania->activo)
                             <tr>
@@ -135,7 +135,7 @@
                                 <th>{{$cliente->email}}</th>
                                 <th>
                                     <div class='btn-group'>
-                                        <a href="/dashboard/fidepuntos/clientes/{{$cliente->id}}" class='btn btn-info'><i class="fas fa-eye"></i></a>
+                                        <a href="/dashboard/fidepuntos/clientes/{{$cliente->id}}" class='btn btn-ver'><i class="fas fa-eye"></i></a>
                                         <a href="/dashboard/fidepuntos/clientes/update/{{$cliente->id}}" class='btn btn-warning'><i class="fas fa-edit"></i></a>
 
                                     </div>

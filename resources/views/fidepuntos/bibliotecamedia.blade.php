@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Biblioteca Media</h1>
+                <h1 class="titulo-vista">Biblioteca Media</h1>
             </div>
             <div class="col-2">
                 <!-- Modal Import Boton-->

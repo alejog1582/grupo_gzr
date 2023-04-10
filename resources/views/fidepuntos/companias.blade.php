@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Compañias</h1>
+                <h1 class="titulo-vista">Compañias</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/nuevacompania" class="btn boton_menu">Crear Compañia</a>
@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <table class="table">
-                <thead>
+                <thead class="encabezado_tabla">
                   <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Identificacion</th>
@@ -38,7 +38,7 @@
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="cuerpo_tabla">
                     @foreach ($companias as $compania)
                         <tr>
                             <th>{{$compania->nombre_compania}}</th>
@@ -48,12 +48,11 @@
                             <th>{{$compania->celular_contacto}}</th>
                             <th>
                                 <div class='btn-group'>
-                                    <a href="/dashboard/fidepuntos/companias/{{$compania->id}}" class='btn btn-info'><i class="fas fa-eye"></i></a>
-                                    <a href="/dashboard/fidepuntos/companias/update/{{$compania->id}}" class='btn btn-warning'><i class="fas fa-edit"></i></a>
+                                    <a href="/dashboard/fidepuntos/companias/{{$compania->id}}" class='btn btn-ver'><i class="fas fa-eye"></i></a>
+                                    <a href="/dashboard/fidepuntos/companias/update/{{$compania->id}}" class='btn btn-update'><i class="fas fa-edit"></i></a>
 
                                 </div>
                             </th>
-
                         </tr>
                     @endforeach
                 </tbody>

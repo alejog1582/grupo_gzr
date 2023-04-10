@@ -20,14 +20,14 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Cliente {{$cliente->nombre_completo}}</h1>
+                <h1 class="titulo-vista">Cliente {{$cliente->nombre_completo}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/clientes" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -37,6 +37,7 @@
                         {{$cliente->id}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Tipo:</b>
@@ -45,6 +46,7 @@
                         {{$cliente->tipo}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Identificacion:</b>
@@ -53,6 +55,7 @@
                         {{$cliente->identificacion}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Nombre Completo:</b>
@@ -61,6 +64,7 @@
                         {{$cliente->nombre_completo}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Nombre Comercial:</b>
@@ -69,6 +73,7 @@
                         {{$cliente->nombre_comercial}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Puntos:</b>
@@ -77,6 +82,7 @@
                         {{$cliente->puntos_total}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Codigo Cliente:</b>
@@ -85,6 +91,7 @@
                         {{$cliente->codigo_cliente}}
                     </div>
                   </div>
+                  <hr class="separador">
                   @if ($cliente->membresia_id)
                     <div class="row">
                         <div class="col">
@@ -94,6 +101,7 @@
                             {{$cliente->membresia->membresia}}
                         </div>
                     </div>
+                    <hr class="separador">
                   @endif
                   <div class="row">
                     <div class="col">
@@ -103,6 +111,7 @@
                         {{$cliente->celular}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Telefono:</b>
@@ -111,6 +120,7 @@
                         {{$cliente->telefono}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Email:</b>
@@ -119,6 +129,7 @@
                         {{$cliente->email}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Direccion:</b>
@@ -127,6 +138,7 @@
                         {{$cliente->direccion}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Ciudad:</b>
@@ -135,6 +147,7 @@
                         {{$cliente->ciudad}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Barrio:</b>
@@ -143,6 +156,7 @@
                         {{$cliente->barrio}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Codigo Postal:</b>
@@ -151,6 +165,7 @@
                         {{$cliente->codigo_postal}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Latitud:</b>
@@ -159,6 +174,7 @@
                         {{$cliente->latitud}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Longitud:</b>
@@ -167,6 +183,7 @@
                         {{$cliente->longitud}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Compania ID:</b>

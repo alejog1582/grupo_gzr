@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Resultado Import <b>{{$proceso_importacion}}</b> Identificador <b>{{$identificador_importacion}}</b></h1>
+                <h1 class="titulo-vista">Resultado Import <b>{{$proceso_importacion}}</b> Identificador <b>{{$identificador_importacion}}</b></h1>
             </div>
             <div class="col-2">
                 @if ($proceso_importacion == "clientes")

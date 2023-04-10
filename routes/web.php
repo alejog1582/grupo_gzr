@@ -116,6 +116,13 @@ Route::middleware([
     Route::post('/dashboard/fidepuntos/pedidos/update/save', [FidepuntosController::class, 'pedidos_fidepuntos_update_save'])->name('pedidos.fidepuntos.update.save');
     Route::get('/dashboard/fidepuntos/nuevapedidos', [FidepuntosController::class, 'pedidos_fidepuntos_create'])->name('pedidos.fidepuntos.create');
     Route::post('/dashboard/fidepuntos/nuevapedidos/save', [FidepuntosController::class, 'pedidos_fidepuntos_create_save'])->name('pedidos.fidepuntos.create.save');
+    //crud Mensajes fidepuntos
+    Route::get('/dashboard/fidepuntos/mensajes', [FidepuntosController::class, 'mensajes_fidepuntos_index'])->name('mensajes.fidepuntos');
+    /* Route::get('/dashboard/fidepuntos/pedidos/{id}', [FidepuntosController::class, 'pedidos_fidepuntos_view'])->name('pedidos.fidepuntos.view');
+    Route::get('/dashboard/fidepuntos/pedidos/update/{id}', [FidepuntosController::class, 'pedidos_fidepuntos_update'])->name('pedidos.fidepuntos.update');
+    Route::post('/dashboard/fidepuntos/pedidos/update/save', [FidepuntosController::class, 'pedidos_fidepuntos_update_save'])->name('pedidos.fidepuntos.update.save');
+    Route::get('/dashboard/fidepuntos/nuevapedidos', [FidepuntosController::class, 'pedidos_fidepuntos_create'])->name('pedidos.fidepuntos.create');
+    Route::post('/dashboard/fidepuntos/nuevapedidos/save', [FidepuntosController::class, 'pedidos_fidepuntos_create_save'])->name('pedidos.fidepuntos.create.save'); */
     //Exports Plantillas
     Route::get('/dashboard/fidepuntos/exports/plantilla/clientes', [FidepuntosController::class, 'export_clientes_fidepuntos'])->name('clientes.fidepuntos.export.formato');
     Route::get('/dashboard/fidepuntos/exports/plantilla/productos', [FidepuntosController::class, 'export_productos_fidepuntos'])->name('productos.fidepuntos.export.formato');

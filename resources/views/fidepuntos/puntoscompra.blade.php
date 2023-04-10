@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Puntos x Compra</h1>
+                <h1 class="titulo-vista">Puntos x Compra</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos" class="btn boton_menu">Regresar</a>
@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <table class="table">
-                <thead>
+                <thead  class="encabezado_tabla">
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Compañia</th>
@@ -37,7 +37,7 @@
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="cuerpo_tabla">
                     @foreach ($companiasplanpuntoscompra as $cppc)
                         <tr>
                             <th>{{$cppc->compania->id}}</th>

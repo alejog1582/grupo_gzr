@@ -20,14 +20,14 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Membresia {{$membresia->membresia}}</h1>
+                <h1 class="titulo-vista">Membresia {{$membresia->membresia}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/membresias" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -37,6 +37,7 @@
                         {{$membresia->id}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Membresia:</b>
@@ -45,6 +46,7 @@
                         {{$membresia->membresia}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Puntos a Otrogar:</b>
@@ -53,6 +55,7 @@
                         {{$membresia->puntos_otorgar}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Activo:</b>

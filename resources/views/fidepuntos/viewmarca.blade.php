@@ -20,14 +20,14 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Marca {{$marca->nombre_marca}}</h1>
+                <h1 class="titulo-vista">Marca {{$marca->nombre_marca}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/marcas" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -37,6 +37,7 @@
                         {{$marca->id}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Nombre Marca:</b>
@@ -45,6 +46,7 @@
                         {{$marca->nombre_marca}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Compania:</b>
@@ -53,6 +55,7 @@
                         {{$marca->compania->nombre_compania}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Fabricante:</b>
@@ -61,6 +64,7 @@
                         {{$marca->fabricante->nombre_fabricante}}
                     </div>
                   </div>
+                  <hr class="separador">
                   <div class="row">
                     <div class="col">
                         <b>Activo:</b>

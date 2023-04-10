@@ -20,14 +20,14 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Crear Nuevo ERP</h1>
+                <h1 class="titulo-vista">Crear Nuevo ERP</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/erps" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <br>
                 <div class="container">
                     <form action="/dashboard/fidepuntos/nuevoerp/save" method="post" >

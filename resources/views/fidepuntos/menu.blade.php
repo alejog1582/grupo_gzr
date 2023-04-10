@@ -38,16 +38,19 @@
                 <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>
                 <ul class="collapse list-unstyled" id="productosSubmenu">
                     <li>
-                        <a href="#">Productos</a>
+                        <a href="/dashboard/fidepuntos/productos">Productos</a>
                     </li>
                     <li>
-                        <a href="#">Fabricantes</a>
+                        <a href="/dashboard/fidepuntos/bibliotecamedia">Biblioteca Imagenes</a>
                     </li>
                     <li>
-                        <a href="#">Marcas</a>
+                        <a href="/dashboard/fidepuntos/fabricantes">Fabricantes</a>
                     </li>
                     <li>
-                        <a href="#">Categorias</a>
+                        <a href="/dashboard/fidepuntos/marcas">Marcas</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/fidepuntos/categorias">Categorias</a>
                     </li>
                 </ul>
             </li>
@@ -55,27 +58,24 @@
                 <a href="#configpuntosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Config. Puntos</a>
                 <ul class="collapse list-unstyled" id="configpuntosSubmenu">
                     <li>
-                        <a href="#">Activar Plan de Puntos</a>
+                        <a href="/dashboard/fidepuntos/planpuntos">Activar Plan de Puntos</a>
                     </li>
                     <li>
-                        <a href="#">Puntos x Compras</a>
+                        <a href="/dashboard/fidepuntos/puntosxcompra">Puntos x Compras</a>
                     </li>
                     <li>
-                        <a href="#">Puntos x Productos</a>
+                        <a href="/dashboard/fidepuntos/puntosxproducto">Puntos x Productos</a>
                     </li>
                     <li>
-                        <a href="#">Fidelizacion Clientes Config</a>
+                        <a href="/dashboard/fidepuntos/fidelizacionconfig">Fidelizacion Clientes Config</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#cargueventasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cargue Ventas</a>
+                <a href="#cargueventasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cargue Puntos</a>
                 <ul class="collapse list-unstyled" id="cargueventasSubmenu">
                     <li>
-                        <a href="#">Ventas Puntos</a>
-                    </li>
-                    <li>
-                        <a href="#">Ventas Fidelizacion</a>
+                        <a href="#">Cargue Puntos</a>
                     </li>
                 </ul>
             </li>
@@ -83,10 +83,15 @@
                 <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos</a>
                 <ul class="collapse list-unstyled" id="pedidosSubmenu">
                     <li>
-                        <a href="#">Canje de puntos</a>
+                        <a href="/dashboard/fidepuntos/pedidos">Pedidos</a>
                     </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#mensajesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mensajes</a>
+                <ul class="collapse list-unstyled" id="mensajesSubmenu">
                     <li>
-                        <a href="#">Ecommerce</a>
+                        <a href="/dashboard/fidepuntos/mensajes">Mensajes</a>
                     </li>
                 </ul>
             </li>

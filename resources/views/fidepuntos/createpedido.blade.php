@@ -65,7 +65,7 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Crear Nuevo Pedido</h1>
+                <h1 class="titulo-vista">Crear Nuevo Pedido</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/pedidos" class="btn boton_menu">Regresar</a>
@@ -117,7 +117,7 @@
                         <hr>
                         <div class="form-row">
                             <table class="table">
-                                <thead>
+                                <thead  class="encabezado_tabla">
                                   <tr>
                                     <th scope="col">Codigo Producto</th>
                                     <th scope="col">Nombre Producto</th>

@@ -20,14 +20,14 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Marca a Editar: {{$marca->nombre_marca}}. Compañia {{$marca->compania->nombre_compania}}</h1>
+                <h1 class="titulo-vista">Marca a Editar: {{$marca->nombre_marca}}. Compañia {{$marca->compania->nombre_compania}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/marcas" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <br>
                 <div class="container">
                     <form action="/dashboard/fidepuntos/marcas/update/save" method="post" >

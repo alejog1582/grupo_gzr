@@ -20,14 +20,14 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Configuracion Puntos x Productos Compañia: {{$plan_punto_compania->compania->nombre_compania}}</h1>
+                <h1 class="titulo-vista">Configuracion Puntos x Productos Compañia: {{$plan_punto_compania->compania->nombre_compania}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/puntosxproducto" class="btn boton_menu">Regresar</a>
             </div>
         </div>
         <div class="row">
-            <div style="width: 100%" class="card">
+            <div style="width: 100%" class="card cuerpo_tabla">
                 <br>
                 <div class="container">
                     <form action="/dashboard/fidepuntos/puntosproducto/update/save" method="post" >
@@ -51,13 +51,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <table class="table">
-                                            <thead>
+                                            <thead  class="encabezado_tabla">
                                               <tr>
                                                 <th scope="col">Fabricante</th>
                                                 <th scope="col">Puntaje</th>
                                               </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody class="cuerpo_tabla">
                                                     <tr>
                                                         @foreach ($configuracion_puntos_productos as $cpp)
                                                             @if ($cpp->fabricante_id != null)
@@ -88,13 +88,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <table class="table">
-                                            <thead>
+                                            <thead  class="encabezado_tabla">
                                               <tr>
                                                 <th scope="col">Marca</th>
                                                 <th scope="col">Puntaje</th>
                                               </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody class="cuerpo_tabla">
                                                     <tr>
                                                         @foreach ($configuracion_puntos_productos as $cpp)
                                                             @if ($cpp->marca_id != null)
@@ -125,13 +125,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <table class="table">
-                                            <thead>
+                                            <thead  class="encabezado_tabla">
                                               <tr>
                                                 <th scope="col">Categoria</th>
                                                 <th scope="col">Puntaje</th>
                                               </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody class="cuerpo_tabla">
                                                     <tr>
                                                         @foreach ($configuracion_puntos_productos as $cpp)
                                                             @if ($cpp->categoria_id != null)
@@ -151,7 +151,7 @@
                                 <h3 class="text-center">Productos</h3>
                                 <div class="form-row">
                                     <div class="form-group col-sm-6">
-                                        <select required id="producto_id" class="form-control" name="producto_id">
+                                        <select id="producto_id" class="form-control" name="producto_id">
                                             @foreach ($productos as $producto)
                                                 <option value="{{ $producto->id }}">{{$producto->nombre_producto}}</option>
                                             @endforeach
@@ -164,13 +164,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <table class="table">
-                                            <thead>
+                                            <thead  class="encabezado_tabla">
                                               <tr>
                                                 <th scope="col">Producto</th>
                                                 <th scope="col">Puntaje</th>
                                               </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody class="cuerpo_tabla">
                                                     <tr>
                                                         @foreach ($configuracion_puntos_productos as $cpp)
                                                             @if ($cpp->producto_id != null)

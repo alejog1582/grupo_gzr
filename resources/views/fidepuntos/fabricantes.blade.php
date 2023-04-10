@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Fabricantes</h1>
+                <h1 class="titulo-vista">Fabricantes</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/nuevofabricante" class="btn boton_menu">Crear Fabricante</a>
@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <table class="table">
-                <thead>
+                <thead  class="encabezado_tabla">
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre Fabricante</th>
@@ -37,7 +37,7 @@
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="cuerpo_tabla">
                     @foreach ($fabricantes as $fabricante)
                         @if ($fabricante->compania->activo)
                             <tr>
@@ -53,7 +53,7 @@
                                 </th>
                                 <th>
                                     <div class='btn-group'>
-                                        <a href="/dashboard/fidepuntos/fabricantes/{{$fabricante->id}}" class='btn btn-info'><i class="fas fa-eye"></i></a>
+                                        <a href="/dashboard/fidepuntos/fabricantes/{{$fabricante->id}}" class='btn btn-ver'><i class="fas fa-eye"></i></a>
                                         <a href="/dashboard/fidepuntos/fabricantes/update/{{$fabricante->id}}" class='btn btn-warning'><i class="fas fa-edit"></i></a>
 
                                     </div>

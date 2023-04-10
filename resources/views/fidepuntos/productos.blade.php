@@ -21,7 +21,7 @@
         @include('flash::message')
         <div class="row">
             <div class="col-8">
-                <h1>Productos</h1>
+                <h1 class="titulo-vista">Productos</h1>
             </div>
             <div class="col-4">
                 <a href="/dashboard/fidepuntos/nuevoproducto" class="btn boton_menu">Crear Producto</a>
@@ -114,10 +114,10 @@
             @foreach ($productos as $producto)
                 <div class="col-6">
                     <div class="accordion" id="accordionExample">
-                        <div class="card card_secundaria">
+                        <div class="card card_secundaria card-producto">
                             <div class="card-header card_principal" id="headingOne">
                                 <h2 class="">
-                                    <button class="btn btn-link card_principal" type="button" data-toggle="collapse" data-target="#collapseOne{{$producto->id}}" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-link card_principal txt-encabezado-producto" type="button" data-toggle="collapse" data-target="#collapseOne{{$producto->id}}" aria-expanded="true" aria-controls="collapseOne">
                                         <b>Nombre:</b> {{ $producto->nombre_producto }} || <b>Compañia:</b> {{ $producto->compania->nombre_compania }} || <b>Objetivo:</b> {{ $producto->objetivo }}
                                     </button>
                                 </h2>

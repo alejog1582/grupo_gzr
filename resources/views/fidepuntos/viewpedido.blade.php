@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Detalle Pedido: {{$pedido->id}}</h1>
+                <h1 class="titulo-vista">Detalle Pedido: {{$pedido->id}}</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/pedidos" class="btn boton_menu">Regresar</a>
@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <table class="table">
-                <thead>
+                <thead  class="encabezado_tabla">
                   <tr>
                     {{-- <th scope="col">producto_id</th> --}}
                     <th scope="col">nombre</th>
@@ -40,7 +40,7 @@
                     <th scope="col">Precio Total</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="cuerpo_tabla">
                     @foreach ($productosxpeidos as $prod)
                         <tr>
                             {{-- <th>{{$prod->id}}</th> --}}

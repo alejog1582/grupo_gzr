@@ -23,6 +23,7 @@ class CreateMensajesFidepuntosTable extends Migration
             $table->string('plan_cotizacion')->nullable();
             $table->string('nombre_empresa')->nullable();
             $table->longText('mensaje')->nullable();
+            $table->string('estado');
         });
     }
 

@@ -20,7 +20,7 @@
      <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1>Marcas</h1>
+                <h1 class="titulo-vista">Marcas</h1>
             </div>
             <div class="col-2">
                 <a href="/dashboard/fidepuntos/nuevamarca" class="btn boton_menu">Crear Marca</a>
@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <table class="table">
-                <thead>
+                <thead  class="encabezado_tabla">
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre Marca</th>
@@ -38,7 +38,7 @@
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="cuerpo_tabla">
                     @foreach ($marcas as $marca)
                         @if ($marca->compania->activo)
                             <tr>
@@ -55,7 +55,7 @@
                                 </th>
                                 <th>
                                     <div class='btn-group'>
-                                        <a href="/dashboard/fidepuntos/marcas/{{$marca->id}}" class='btn btn-info'><i class="fas fa-eye"></i></a>
+                                        <a href="/dashboard/fidepuntos/marcas/{{$marca->id}}" class='btn btn-ver'><i class="fas fa-eye"></i></a>
                                         <a href="/dashboard/fidepuntos/marcas/update/{{$marca->id}}" class='btn btn-warning'><i class="fas fa-edit"></i></a>
 
                                     </div>

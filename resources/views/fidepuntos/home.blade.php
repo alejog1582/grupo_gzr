@@ -23,11 +23,12 @@
                 <div class="col">
                     <div class="card formulario-login">
                         <div class="card-body">
-                          <h5 class="card-title">{{$tarjeta_fidepuntos->titulo}}</h5>
+                          <h3 class="card-title">{{$tarjeta_fidepuntos->titulo}}</h3>
                           <p class="card-text">{{$tarjeta_fidepuntos->descripcion}}</p>
                           <a href="{{$tarjeta_fidepuntos->link}}" class="boton_menu">Ver Más</a>
                         </div>
                     </div>
+                    <br>
                 </div>
             @endforeach
         </div>

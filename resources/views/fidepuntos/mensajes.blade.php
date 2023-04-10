@@ -21,29 +21,30 @@
      @include('flash::message')
         <div class="row">
             <div class="col-10">
-                <h1 class="titulo-vista">Pedidos</h1>
+                <h1 class="titulo-vista">Mensajes</h1>
             </div>
-            <div class="col-2">
+            {{-- <div class="col-2">
                 <a href="/dashboard/fidepuntos/nuevapedidos" class="btn boton_menu">Crear Pedido</a>
-            </div>
+            </div> --}}
         </div>
         <div class="row">
-            @foreach ($pedidos as $pedido)
+            @foreach ($mensajes as $mensaje)
             <div class="col-4">
-                <div class="card">
-                    <div class="card-header">
-                    <b>  {{$pedido->compania->nombre_compania}}</b>
+                <div class="card cuerpo_tabla">
+                    <div class="card-header text-center encabezado_tabla">
+                    <b>  {{$mensaje->tipo}}</b>
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title text-center"><b>Valor Pedido: $ {{number_format($pedido->valor_pedido)}}</b></h5>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Fecha Envio:</b> {{$pedido->fecha_envio}}</li>
-                        <li class="list-group-item"><b>Metodo Pago:</b> {{$pedido->metodo_pago}}</li>
-                        <li class="list-group-item"><b>Fecha Pago:</b> {{$pedido->fecha_pago}}</li>
-                        <li class="list-group-item"><b>Identificacion Cliente:</b> {{$pedido->cliente->identificacion}}</li>
-                        <li class="list-group-item"><b>Nombre Cliente:</b> {{$pedido->cliente->nombre_completo}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Nombre:</b> {{$mensaje->nombre}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Email:</b> {{$mensaje->email}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Celular:</b> {{$mensaje->celular}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Nombre Empresa:</b> {{$mensaje->nombre_empresa}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Plan Cotizacion:</b> {{$mensaje->plan_cotizacion}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Estado:</b> {{$mensaje->estado}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Mensaje:</b> {{$mensaje->mensaje}}</li>
                       </ul>
-                      <a href="/dashboard/fidepuntos/pedidos/{{$pedido->id}}" class="btn boton_menu">Ver Detalle</a>
+                      {{-- <a href="/dashboard/fidepuntos/mensajes/{{$mensaje->id}}" class="btn boton_menu">Ver Detalle</a> --}}
                     </div>
                   </div>
                   <br>
