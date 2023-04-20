@@ -30,18 +30,18 @@
         <div class="row">
             @foreach ($pedidos as $pedido)
             <div class="col-4">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card cuerpo_tabla">
+                    <div class="card-header encabezado_tabla">
                     <b>  {{$pedido->compania->nombre_compania}}</b>
                     </div>
                     <div class="card-body">
                       <h5 class="card-title text-center"><b>Valor Pedido: $ {{number_format($pedido->valor_pedido)}}</b></h5>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Fecha Envio:</b> {{$pedido->fecha_envio}}</li>
-                        <li class="list-group-item"><b>Metodo Pago:</b> {{$pedido->metodo_pago}}</li>
-                        <li class="list-group-item"><b>Fecha Pago:</b> {{$pedido->fecha_pago}}</li>
-                        <li class="list-group-item"><b>Identificacion Cliente:</b> {{$pedido->cliente->identificacion}}</li>
-                        <li class="list-group-item"><b>Nombre Cliente:</b> {{$pedido->cliente->nombre_completo}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Fecha Envio:</b> {{$pedido->fecha_envio}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Metodo Pago:</b> {{$pedido->metodo_pago}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Fecha Pago:</b> {{$pedido->fecha_pago}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Identificacion Cliente:</b> {{$pedido->cliente->identificacion}}</li>
+                        <li class="list-group-item cuerpo_tabla"><b>Nombre Cliente:</b> {{$pedido->cliente->nombre_completo}}</li>
                       </ul>
                       <a href="/dashboard/fidepuntos/pedidos/{{$pedido->id}}" class="btn boton_menu">Ver Detalle</a>
                     </div>
