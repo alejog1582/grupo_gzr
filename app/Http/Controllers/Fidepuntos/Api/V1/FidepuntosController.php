@@ -26,7 +26,7 @@ use Cloudinary;
 use App\Models\ProductosFidepuntos;
 use App\Models\PlanPuntosxCompaniaFidepuntos;
 use App\Models\PuntosxComprasFidepuntos;
-use App\Models\PuntosxproductosFidepuntos;
+use App\Models\PuntosxProductosFidepuntos;
 use App\Models\ConfigFidelizacionClientesFidepuntos;
 use App\Models\Logins;
 use App\Models\PedidosFidepuntos;
@@ -1545,8 +1545,8 @@ class FidepuntosController extends Controller
         $marcas = MarcasFidepuntos::where('compania_id', $plan_punto_compania->compania->id)->where('activo', '1')->get();
         $categorias = CategoriasFidepuntos::where('compania_id', $plan_punto_compania->compania->id)->where('activo', '1')->get();
         $productos = ProductosFidepuntos::where('compania_id', $plan_punto_compania->compania->id)->where('activo', '1')->get();
-        //$configuracion_puntos_productos = PuntosxproductosFidepuntos::where('plan_puntos_compania_id', $id)->get();
-        $configuracion_puntos_productos = [];
+        $configuracion_puntos_productos = PuntosxproductosFidepuntos::where('plan_puntos_compania_id', $id)->get();
+        //$configuracion_puntos_productos = [];
 
         return view('fidepuntos/updatepuntosproducto', [
 			'usuario' => $usuario,
