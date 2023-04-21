@@ -124,13 +124,13 @@ class ProductosFidepuntosController extends Controller
         //Comentario* Se construye el objeto final
         return response()->json([
             "img_logo" => $compania->img_logo,
-            "valor_minimo_compra" => $compania->valor_minimo_compra,
-            "tiempo_entrega" => $compania->tiempo_entrega,
-            "pedio_express" => $compania->pedio_express,
-            "costo_pedio_express" => $compania->costo_pedio_express,
-            "valida_stock" => $compania->valida_stock,
-            "costo_envio" => $compania->costo_envio,
-            "tope_compra_costo_cero" => $compania->costo_pedio_express,
+            "valor_minimo_compra" => intval($compania->valor_minimo_compra),
+            "tiempo_entrega" => intval($compania->tiempo_entrega),
+            "pedio_express" => intval($compania->pedio_express),
+            "costo_pedio_express" => intval($compania->costo_pedio_express),
+            "valida_stock" => intval($compania->valida_stock),
+            "costo_envio" => intval($compania->costo_envio),
+            "tope_compra_costo_cero" => intval($compania->costo_pedio_express),
             "tienda_online" => $categorias_ecommerce,
             "catalogo" => $categorias_canje,
         ]);
