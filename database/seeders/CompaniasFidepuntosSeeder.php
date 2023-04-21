@@ -27,6 +27,7 @@ class CompaniasFidepuntosSeeder extends Seeder
             'codigo_postal' => '11011',
             'activo' => '1',
             'erp' => '0',
+            'img_logo' => 'https://res.cloudinary.com/dikbf3xct/image/upload/v1682089887/puntosgroup_media/blue_simple_cleaning_logo_design.png',
             'valor_minimo_compra' => 20000,
             'tiempo_entrega' => 48,
             'pedio_express' => 0,
