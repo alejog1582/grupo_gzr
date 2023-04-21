@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Fidepuntos\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\ProductosFidepuntos;
+use App\Models\CompaniasFidepuntos;
 use Illuminate\Http\Request;
 
 class ProductosFidepuntosController extends Controller
@@ -37,6 +38,7 @@ class ProductosFidepuntosController extends Controller
      */
     public function show($id)
     {
+        $compania = CompaniasFidepuntos::find($id);
         $categorias_ecommerce = [];
         $categorias_ecommerce_prov = [];
         $categorias_canje = [];
@@ -121,6 +123,14 @@ class ProductosFidepuntosController extends Controller
 
         //Comentario* Se construye el objeto final
         return response()->json([
+            "img_logo" => $compania->img_logo,
+            "valor_minimo_compra" => $compania->valor_minimo_compra,
+            "tiempo_entrega" => $compania->tiempo_entrega,
+            "pedio_express" => $compania->pedio_express,
+            "costo_pedio_express" => $compania->costo_pedio_express,
+            "valida_stock" => $compania->valida_stock,
+            "costo_envio" => $compania->costo_envio,
+            "tope_compra_costo_cero" => $compania->costo_pedio_express,
             "tienda_online" => $categorias_ecommerce,
             "catalogo" => $categorias_canje,
         ]);
