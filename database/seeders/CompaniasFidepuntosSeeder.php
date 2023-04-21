@@ -16,20 +16,25 @@ class CompaniasFidepuntosSeeder extends Seeder
     {
         CompaniasFidepuntos::create([
             'tipo' => 'empresa',
-            'identificacion' => '901224405',
-            'nombre_compania' => 'Limpro Colombia SAS',
-            'nombre_contacto' => 'Jeraldinne Rodriguez',
-            'celular_contacto' => '3125223545',
-            'telefono_contacto' => '3125223545',
-            'email_contacto' => 'servicios@limpro.co',
+            'identificacion' => '1018410598',
+            'nombre_compania' => 'Cleaning Sun',
+            'nombre_contacto' => 'Alejandro Gonzalez',
+            'celular_contacto' => '3128157049',
+            'telefono_contacto' => '3128157049',
+            'email_contacto' => 'alejog1582@gmail.com',
             'direccion' => 'Cra 7 b bis # 158 - 21',
             'ciudad' => 'Bogota',
             'codigo_postal' => '11011',
             'activo' => '1',
             'erp' => '0',
+            'valor_minimo_compra' => 20000,
+            'tiempo_entrega' => 48,
+            'pedio_express' => 0,
+            'costo_envio' => 10000,
+            'tope_compra_costo_cero' => 100000,
         ]);
 
-        CompaniasFidepuntos::create([
+        /* CompaniasFidepuntos::create([
             'tipo' => 'empresa',
             'identificacion' => '901497735',
             'nombre_compania' => 'Cash Advance',
@@ -42,9 +47,9 @@ class CompaniasFidepuntosSeeder extends Seeder
             'codigo_postal' => '11011',
             'activo' => '1',
             'erp' => '0',
-        ]);
+        ]); */
 
-        CompaniasFidepuntos::create([
+        /* CompaniasFidepuntos::create([
             'tipo' => 'empresa',
             'identificacion' => '901497735',
             'nombre_compania' => 'Distrialgusto',
@@ -57,6 +62,6 @@ class CompaniasFidepuntosSeeder extends Seeder
             'codigo_postal' => '11011',
             'activo' => '1',
             'erp' => '1',
-        ]);
+        ]); */
     }
 }

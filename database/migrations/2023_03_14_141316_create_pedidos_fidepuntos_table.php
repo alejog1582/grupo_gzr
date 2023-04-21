@@ -28,6 +28,11 @@ class CreatePedidosFidepuntosTable extends Migration
             $table->string('id_pedido_externo')->nullable();
             $table->string('metodo_pago')->nullable();
             $table->date('fecha_pago')->nullable();
+            $table->integer('tiempo_entrega')->nullable();
+            $table->boolean('pedio_express')->nullable();
+            $table->integer('costo_pedio_express')->nullable();
+            $table->integer('costo_envio')->nullable();
+            $table->integer('valor_total')->nullable();
 
         });
     }

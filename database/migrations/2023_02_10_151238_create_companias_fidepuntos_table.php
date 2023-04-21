@@ -28,6 +28,14 @@ class CreateCompaniasFidepuntosTable extends Migration
             $table->string('codigo_postal')->nullable();
             $table->boolean('activo');
             $table->boolean('erp');
+            $table->string('img_logo')->nullable();
+            $table->integer('valor_minimo_compra')->nullable();
+            $table->integer('tiempo_entrega')->nullable();
+            $table->boolean('pedio_express')->nullable();
+            $table->integer('costo_pedio_express')->nullable();
+            $table->boolean('valida_stock')->nullable();
+            $table->integer('costo_envio')->nullable();
+            $table->integer('tope_compra_costo_cero')->nullable();
         });
     }
 
